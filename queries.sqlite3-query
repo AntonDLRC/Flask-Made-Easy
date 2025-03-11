@@ -1,0 +1,39 @@
+-- database: ./database.db
+
+/*You can execute SQL quaries here or You can do
+it directly in the database.*/
+
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) VALUES ("Domane SLR 9", 72, 12000, "The Trek Domane SLR 9 is an endurance road bike designed for long-distance comfort and high performance. It features a lightweight carbon frame, integrated disc brakes, and the IsoSpeed decoupler that smooths out rough roads. Its aerodynamic design and comfort-oriented geometry make it perfect for tackling both smooth and rough terrains on long rides.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) VALUES ("StumpJumper", 56, 10000, "The Specialized Stumpjumper is a versatile full-suspension mountain bike, ideal for aggressive trail riders. It features a carbon frame, high-quality suspension for tackling rugged terrains, and 29-inch wheels for better stability and speed. This bike is built for trail enthusiasts who want to ride on a variety of terrains with excellent control and comfort."); 
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Ducati Panigale V4", 186, 24995, "The Ducati Panigale V4 is a superbike equipped with a 1,103cc V4 engine producing 214 horsepower. With its race-inspired design, exceptional handling, and aggressive performance, it’s built for riders looking for a thrilling experience on the track or open roads. The bike incorporates advanced electronics and aerodynamics for enhanced control and stability at high speeds.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Kawasaki Ninja H2", 249, 29000, "The Kawasaki Ninja H2 is a hyperbike featuring a 998cc supercharged inline-four engine that delivers 228 horsepower. Known for its breathtaking acceleration and top-end speed, the H2 is an engineering marvel combining cutting-edge technology and immense power. It also features advanced ride modes, suspension, and braking systems.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Yamaha YZF-R1", 186, 17399, "The Yamaha YZF-R1 is a highly capable sportbike powered by a 998cc crossplane crankshaft engine that generates 200 horsepower. It features a sleek, aggressive design with superb cornering capabilities, advanced electronics, and precise handling. This bike is often favored for both street riding and track use.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("BMW S1000RR", 190, 17995, "The BMW S1000RR is an iconic superbike that boasts a 999cc inline-four engine, producing 205 horsepower. It is renowned for its sharp handling, cutting-edge technology, and exceptional speed. The S1000RR features dynamic traction control, adaptive suspension, and a quick-shift gearbox, making it perfect for both the street and track.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Harley-Davidson LiveWire", 95, 29799, "The Harley-Davidson LiveWire is the brand's first electric motorcycle, offering a revolutionary experience with instant torque and a smooth, quiet ride. Equipped with a 15.5 kWh battery and a 105 horsepower electric motor, it accelerates from 0 to 60 mph in 3 seconds. The LiveWire offers a futuristic twist on Harley’s classic design, providing an eco-friendly alternative without compromising performance.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Honda CBR1000RR-R Fireblade", 186, 28000, "The Honda CBR1000RR-R Fireblade is designed for both street and track use, featuring a 999cc inline-four engine producing 214 horsepower. It comes with top-tier features such as a fully adjustable suspension, improved aerodynamics, and an advanced electronics suite, including traction control and engine modes, to ensure optimal performance and safety at high speeds.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Suzuki GSX-R1000R", 185, 17199, "The Suzuki GSX-R1000R is a superbike featuring a 999cc inline-four engine capable of producing 199 horsepower. It’s known for its smooth power delivery, excellent handling, and advanced electronics, including a quick-shift system and an integrated traction control system. This bike is perfect for those seeking a high-performance machine both on the track and the road.");
+
+INSERT INTO Bikes (Model, Topspeed, Cost, Description) 
+VALUES ("Triumph Daytona Moto2 765", 165, 17500, "The Triumph Daytona Moto2 765 is a track-inspired sports bike featuring a 765cc 3-cylinder engine that produces 128 horsepower. It’s equipped with advanced racing technology, including optimized suspension, quick-shift gearbox, and enhanced aerodynamics. The bike’s lightweight design and superior handling make it a perfect choice for both track enthusiasts and road riders looking for a high-performance experience.");
+
+-- SELECT * FROM Bikes;
+SELECT * FROM Bikes;
+
+SELECT Makers.Name, Bikes.Model FROM Bikes
+JOIN Makers ON Makers.MakerID = Bikes.MakerID;
