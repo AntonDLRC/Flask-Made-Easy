@@ -35,5 +35,13 @@ VALUES ("Triumph Daytona Moto2 765", 165, 17500, "The Triumph Daytona Moto2 765 
 -- SELECT * FROM Bikes;
 SELECT * FROM Bikes;
 
+-- select name and model
 SELECT Makers.Name, Bikes.Model FROM Bikes
 JOIN Makers ON Makers.MakerID = Bikes.MakerID;
+
+-- select id, name, model, speed, and price
+SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost FROM Bikes
+JOIN Makers ON Makers.MakerID = Bikes.MakerID;
+
+-- just one bike based on id
+SELECT * FROM Bikes WHERE BikeID = 2;
