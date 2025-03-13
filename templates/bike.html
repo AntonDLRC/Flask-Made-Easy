@@ -1,0 +1,20 @@
+<!-- There should be no space before % -->
+{% extends "layout.html" %}
+{% block body %}
+<!-- Just one bike -->
+<!-- Two column grid -->
+<div class="two-column">
+    <!-- image on left -->
+    <img src="{{ bike[6] }}" alt="{{ bike[2] }}">
+    <!-- Info of the bike-->
+    <div class="information">
+        <h3>Name: {{ bike[2] }}</h3>
+        <h3>Maker: {{ bike[8] }}</h3>
+        <h3> TopSpeed: {{ bike[3] }}Kp/H</h3>
+        <h3> Price: ${{ bike[4] }} USD</h3>
+        <h3> Description: {{ bike[5] }}</h3>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -39,9 +39,11 @@ SELECT * FROM Bikes;
 SELECT Makers.Name, Bikes.Model FROM Bikes
 JOIN Makers ON Makers.MakerID = Bikes.MakerID;
 
--- select id, name, model, speed, and price
-SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost FROM Bikes
+-- select id, name, model, speed, cost, and image
+SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost, Bikes.ImageURL FROM Bikes
 JOIN Makers ON Makers.MakerID = Bikes.MakerID;
 
 -- just one bike based on id
 SELECT * FROM Bikes WHERE BikeID = 2;
+
+SELECT * FROM Bikes JOIN Makers ON Makers.MakerID = Bikes.MakerID WHERE BikeID = 2;

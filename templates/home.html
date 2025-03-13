@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Home page goes here -->
+ <!-- a 3 column grid -->
+   <div class = "three-column">
+    {% for bike in results %}
+    <!-- this code make the name clickable, making the bike you click see its details -->
+    <a href = "{{ url_for('bike', id = bike[0]) }}">
+        <div class = "w3-card-4">
+            <!-- the name then the image--> 
+            <h1> {{ bike[1]}} {{ bike[2]}} </h1>
+            <img src = "{{ bike[5] }}" alt = "{{ bike[2] }}">
+        </div>
+    </a>
+        
+    {% endfor %}
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+body,h1,h2,h3,h4,h5,h6,p {
+    font-family: Righteous, sans-serif;
+}
+
+.three-column{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+     
+}
+
+/* All image at 100% width */
+img {
+    width: 100%;
+}
+
+/* So when you div something, e.g. div column, 
+you can edit how they are present on the screen or websites.
+Just add a dot at the front */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+}
+
+p {
+    text-align: justify;
+}

@@ -1,6 +1,6 @@
 # Every software or app need a database to store data.
 
-from flask import Flask, g
+from flask import Flask, g, render_template
 import sqlite3
 
 DATABASE = 'database.db'
@@ -34,19 +34,19 @@ def query_db(query, args=(), one=False):
 
 @app.route("/")
 def home():
-    #home page - just id, name, model, speed, and price
+    #home page - just id, name, model, speed, price, and image
     #Use """ to write a multi-line string"
-    sql = """SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost FROM Bikes
+    sql = """SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost, Bikes.ImageURL FROM Bikes
              JOIN Makers ON Makers.MakerID = Bikes.MakerID;"""
     results = query_db(sql)
-    return str(results)
+    return render_template("home.html",results = results)
 
 @app.route('/bike/<int:id>')
 def bike(id):
     #just one bike based on id
-    sql = "SELECT * FROM Bikes WHERE BikeID = ?;"
+    sql = "SELECT * FROM Bikes JOIN Makers ON Makers.MakerID = Bikes.MakerID WHERE BikeID = ?;"
     result = query_db(sql, (id,), True)
-    return str(result)
+    return render_template("bike.html", bike = result)
 
 
 if __name__ == "__main__":
