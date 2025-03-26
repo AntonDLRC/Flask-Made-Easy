@@ -20,13 +20,17 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-#This query_db function combines getting the cursor, executing and fetching the results
+#This query_db function combines getting the databse, cursor, executing and fetching the results
 
-def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
-    return (rv[0] if rv else None) if one else rv
+def query_db(sql, args=(), one=False):
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
+    cursor.execute(sql, args)
+    results = cursor.fetchall()
+    db.commit()
+    db.close()
+    return (results[0] if results else None) if one else results
+    
 
 
 #These are the routes for the app
@@ -38,16 +42,19 @@ def home():
     #Use """ to write a multi-line string"
     sql = """SELECT Bikes.BikeID, Makers.Name, Bikes.Model, Bikes.TopSpeed, Bikes.Cost, Bikes.ImageURL FROM Bikes
              JOIN Makers ON Makers.MakerID = Bikes.MakerID;"""
+    #quert_db function is used to let us query the database, using a string 
     results = query_db(sql)
-    return render_template("home.html",results = results)
+    return render_template("home.html", results = results)
 
 @app.route('/bike/<int:id>')
 def bike(id):
     #just one bike based on id
     sql = "SELECT * FROM Bikes JOIN Makers ON Makers.MakerID = Bikes.MakerID WHERE BikeID = ?;"
-    result = query_db(sql, (id,), True)
+    result = query_db(sql, args=(id,), one=True)
     return render_template("bike.html", bike = result)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    hhihihihihihihi
